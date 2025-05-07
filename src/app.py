@@ -1,17 +1,11 @@
 from smolagents import CodeAgent, LiteLLMModel
-from smolagents import tool
 from smolagents import DuckDuckGoSearchTool
-from smolagents.agents import ToolCallingAgent
 
-model=LiteLLMModel(
-    model_id="ollama/smollm:135m",
-    api_key="ollama"
-)
+model=LiteLLMModel(model_id="ollama/smollm:135m")
 
 agent=CodeAgent(
-    tools=[],model=model,
-    add_base_tools=True,
-    additional_authorized_imports=['numpy', 'sys','wikipedia','scipy','requests', 'bs4']
+    tools=[DuckDuckGoSearchTool()],
+    model=model
 )
 
-agent.run("Hello?",)
+agent.run("How old is Bruce Wayne?")
