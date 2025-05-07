@@ -4,7 +4,7 @@ from smolagents import DuckDuckGoSearchTool
 from smolagents.agents import ToolCallingAgent
 
 model=LiteLLMModel(
-    model_id="ollama/smollm:1.7b",
+    model_id="ollama/smollm:135m",
     api_key="ollama"
 )
 
