@@ -11,8 +11,8 @@ run-ollama:
   docker run -d -v ollama:/root/.ollama \
     -p 11434:11434 \
     --name ollama \
-    --memory=12g \
-    --memory-swap=16g \
+    --memory=64g \
+    --memory-swap=128g \
     ollama/ollama \
 
 run-ollama-ui:
@@ -25,13 +25,13 @@ run-ollama-ui:
 
 # Pulls Model in Existent Ollama Container
 pull-model:
-  @echo "Running https://ollama.com/library/qwen2.5-coder:0.5b-instruct"
-  docker exec -it ollama ollama pull qwen2.5-coder:0.5b-instruct
+  @echo "Running https://ollama.com/library/qwen2.5-coder:3b-instruct"
+  docker exec -it ollama ollama pull qwen2.5-coder:32b-instruct-q2_K
 
 # Runs Model in Existent Ollama Container
 run-model:
-  @echo "Running https://ollama.com/library/qwen2.5-coder:0.5b-instruct"
-  docker exec -it ollama ollama run qwen2.5-coder:0.5b-instruct
+  @echo "Running https://ollama.com/library/qwen2.5-coder:3b-instruct"
+  docker exec -it ollama ollama run qwen2.5-coder:32b-instruct-q2_K
 
 # Stop containers and deactivates venv
 cleanup:
